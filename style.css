@@ -11,11 +11,8 @@ nav {
 }
 
 nav ul {
-    list-style: none; /* Removes the bullet from list items */
-}
-
-nav ul {
     display: flex; /* makes the list items appear horizontally */
+    list-style: none; /* Removes the bullet from list items */
 }
 
 nav ul li {
