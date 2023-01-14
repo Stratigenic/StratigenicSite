@@ -7,6 +7,7 @@ nav {
   color: #fff; /* sets the text color of the navigation bar */
   padding: 10px; /* adds some padding around the contents of the navigation bar */
   z-index: 1; /* ensures the navigation bar will appear above other content */
+  height: 50px; /* sets the height of the navigation bar */
 }
 
 footer {
