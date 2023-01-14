@@ -1,0 +1,10 @@
+nav {
+  width: 100%; /* sets the width to be 100% of the available space */
+  position: fixed; /* positions the navigation bar at the top of the page */
+  top: 0; /* sets the top edge of the navigation bar to be at the top of the page */
+  left: 0; /* aligns the left edge of the navigation bar with the left edge of the page */
+  background-color: #333; /* sets the background color of the navigation bar */
+  color: #fff; /* sets the text color of the navigation bar */
+  padding: 10px; /* adds some padding around the contents of the navigation bar */
+  z-index: 1; /* ensures the navigation bar will appear above other content */
+}
