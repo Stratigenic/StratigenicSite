@@ -19,6 +19,10 @@ nav ul li {
     margin-right:10px; /* Add some margin to the right of each link */
 }
 
+nav a {
+  color: #fff; /* sets the text color of the links to white */
+}
+
 footer {
   width: 100%; /* sets the width to be 100% of the available space */
   position: fixed; /* positions the footer at the bottom of the page */
