@@ -19,18 +19,18 @@ jobs:
         git add -A
         git commit -m "Copy docs to previous on release ${{ env.GITHUB_REF }}"
 
-- name: Start SSH agent
-  run: ssh-agent -s
-  shell: bash
+    - name: Start SSH agent
+      run: ssh-agent -s
+      shell: bash
 
-- name: Set ssh-agent env
-  run: echo "::set-env name=SSH_AUTH_SOCK::$SSH_AUTH_SOCK"
-  shell: bash
+    - name: Set ssh-agent env
+      run: echo "::set-env name=SSH_AUTH_SOCK::$SSH_AUTH_SOCK"
+      shell: bash
 
-- name: Add ssh key
-  run: ssh-add <(echo "${{ secrets.SSH_PRIVATE_KEY }}")
-  env:
-    SSH_AUTH_SOCK: ${{ env.SSH_AUTH_SOCK }}
+    - name: Add ssh key
+      run: ssh-add <(echo "${{ secrets.SSH_PRIVATE_KEY }}")
+      env:
+        SSH_AUTH_SOCK: ${{ env.SSH_AUTH_SOCK }}
 
     - name: Push changes
       run: |
