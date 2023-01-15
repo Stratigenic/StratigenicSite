@@ -1,0 +1,16 @@
+name: Copy docs on release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  copy-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Copy docs
+      run: rsync -av --exclude='previous' docs/ docs/previous/${{ env.GITHUB_REF }}
