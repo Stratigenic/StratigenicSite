@@ -18,6 +18,13 @@ jobs:
         git config --local user.name "GitHub Action"
         git add -A
         git commit -m "Copy docs to previous on release ${{ env.GITHUB_REF }}"
+
+    - name: Start ssh-agent
+      run: eval "$(ssh-agent -s)"
+      shell: bash
+    - name: Add ssh key
+      run: echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
+      shell: bash
     - name: Push changes
       run: |
         echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add - > /dev/null
