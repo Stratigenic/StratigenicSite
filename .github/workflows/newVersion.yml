@@ -1,11 +1,13 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Copy Release
 
 # Controls when the workflow will run
 on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  release:
+    types: [published]
+    branches:
+      - main
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -21,11 +23,10 @@ jobs:
         with: 
           token: ${{ secrets.JOSH_TOKEN }}
 
-      # Runs a set of commands using the runners shell
+      # Copy the release and check it all in
       - name: Run a multi-line script
         run: |
-          rsync -av --exclude='previous' docs/ docs/previous/v1.0.0
-          date > generated.txt
+          rsync -av --exclude='previous' docs/ docs/previous/${{ env.GITHUB_REF }}
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add -A
