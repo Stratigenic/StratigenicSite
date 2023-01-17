@@ -22,4 +22,4 @@ jobs:
       run: |
         eval `ssh-agent -s`
         echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add - > /dev/null
-        git push origin ${{ env.GITHUB_REF }}
+        git push origin HEAD:${{ env.GITHUB_REF }}
