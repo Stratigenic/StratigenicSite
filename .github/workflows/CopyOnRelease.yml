@@ -22,4 +22,4 @@ jobs:
         git commit -m "Copy docs to previous on release ${{ env.GITHUB_REF }}"
     - name: Push changes
       run: |
-        eval `ssh-agent -s`; echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add - > /dev/null; git push
+        eval `ssh-agent -s`; echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add - > /dev/null; git push origin HEAD:main
