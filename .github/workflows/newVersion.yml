@@ -26,9 +26,9 @@ jobs:
       # Copy the release and check it all in
       - name: Create the copy and check it all in
         run: |
-          rsync -av --exclude='previous' docs/ docs/previous/${{ github.event.release.tag_name }}
+          rsync -av --exclude='previous' --exclude="CNAME" docs/ docs/previous/${{ github.event.release.tag_name }}
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add -A
-          git commit -m "Copy docs to previous on release ${{ github.event.release.tag_name }"
+          git commit -m "Copy docs to previous on release ${{ github.event.release.tag_name }}"
           git push origin HEAD:main
