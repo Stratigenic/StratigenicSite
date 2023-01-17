@@ -3,6 +3,8 @@ name: Copy docs on release
 on:
   release:
     types: [published]
+    branches:
+      - main
 
 jobs:
   copy-docs:
